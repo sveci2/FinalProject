@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+/*I imported the fonts from googleAPI, specificly the Poppis, which I call later*/
+* {
+  box-sizing: border-box;
+}
+
+/* background colour, general font*/
+body {
+  background-color: #376948;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+/* as you can see I'm using rem instead of px. When you use px, you don't allow users
+to change the font size. By using rem the font adjustments are available */
+
+header {
+  background-color: #376948;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+/* search bar*/
+
+.search {
+  background-color: black;
+  border: 2px solid #22254b;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 3rem;
+}
+
+/* Placeholder colour */
+
+.search::placeholder {
+  color: #73c588;
+}
+
+.search:focus {
+  background-color: #22254b;
+  outline: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* movie tabs. position needs to be relative, otherwise (i.e. fixed) would override tabs*/
+.movie {
+  background-color: #1a3623;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+  width: 300px;
+}
+
+/* Image size in the box */
+.movie img {
+  width: 100%;
+}
+
+/* movie info tab with movie name */
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+/* parameters for ratings */
+
+.movie-info span {
+  background-color: #376948;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+.movie-info span.green {
+  color: rgb(39, 189, 39);
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: rgb(189, 42, 42);
+}
+
+/* hover with movie description */
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  max-height: 100%;
+  overflow: scroll;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+/* using transform I pushed the description 101% below, so the image is not covered.
+Then using hover (once you hover mouse over the image) I changed the parameters of translateY to 0,
+so the image is covered by text.
+
+I also used the transition parameter, so the text will roll up and down slowly (0.3seconds) with effect ease-in
+Without it it would just show.*/
+
+.overview h3 {
+  margin-top: 0;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
